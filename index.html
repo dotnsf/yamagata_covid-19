@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3c.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+<meta charset="utf8"/>
+<meta http-equiv="pragma" content="no-cache"/>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-extra-markers@1.2.1/dist/css/leaflet.extra-markers.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-extra-markers@1.2.1/dist/js/leaflet.extra-markers.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="apple-mobile-web-app-title" content="山形県新型コロナウィルス感染症の状況（視覚化）"/>
+
+<title>山形県新型コロナウィルス感染症の状況（視覚化）</title>
+<script>
+</script>
+<script>
+//. 初期中心位置
+var lat = 38.419525;
+var lng = 140.09628;
+
+//. 初期ズームレベル
+var zoomlevel = 8;
+
+var offset = 0.02;
+
+var map = null;
+var byplace = {};
+var history = {};
+
+$(function(){
+  //. 初期位置を中心とした地図を OpenStreetMap データで表示
+  map = L.map('demoMap', { dragging: true, zoomControl: true }).setView( [ lat, lng ], zoomlevel );
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="//openstreetmap.org/">OpenStreetMap</a>',
+    }
+  ).addTo( map );
+
+  map.on( 'moveend', function( e ){
+    var mapCenter = map.getCenter();
+    //console.log( mapCenter );
+  });
+
+  //. JSON データを取得
+  $.ajax({
+    url: './latlngs.json',
+    type: 'GET',
+    success: function( latlngs ){
+      $.ajax({
+        url: './sample.json',
+        type: 'GET',
+        success: function( result ){
+          if( result && result.length > 0 ){
+            var bydate = {};
+            result.forEach( function( r ){
+              if( r.date ){
+                if( r.date in bydate ){
+                  bydate[r.date].push( r );
+                }else{
+                  bydate[r.date] = [ r ];
+                }
+              }
+            });
+
+            byplace = {};
+            history = {};
+            showByDate( bydate, latlngs, 0 );
+          }else{
+          }
+        },
+        error: function( e0, e1, e2 ){
+          console.log( e1 + ' : ' + e2 );
+        }
+      });
+    },
+    error: function( e0, e1, e2 ){
+      console.log( e1 + ' : ' + e2 );
+    }
+  });
+
+  //. for Debug
+  /*
+  var latlngs = {
+  '神奈川県': { lat: 35.433, lng: 139.633 },
+  '上山市': { lat: 38.133, lng: 140.267 },
+  '新庄市': { lat: 38.750, lng: 140.300 },
+  '大蔵村': { lat: 38.700, lng: 140.217 },
+  '米沢市': { lat: 37.917, lng: 140.117 },
+  '鶴岡市': { lat: 38.717, lng: 139.817 },
+  '南陽市': { lat: 38.050, lng: 140.133 },
+  '高畠町': { lat: 38.000, lng: 140.183 },
+  '飯豊町': { lat: 38.033, lng: 139.983 },
+  '酒田市': { lat: 38.900, lng: 139.833 },
+  '中山町': { lat: 38.317, lng: 140.267 },
+  '山形市': { lat: 38.250, lng: 140.333 },
+  '': { lat: 0, lng: 0 }
+  };
+  var result = [
+  { index: 1, date: '2020/03/30', gendar: 'F', age: 20, place: '神奈川県', text: '発症前１４以内の海外渡航歴なし。軽症で病状は安定。', connections: [] },
+  { index: 2, date: '2020/04/01', gendar: 'M', age: 60, place: '上山市', text: '海外、県外への行動歴なし。肺炎の症状あるも病状安定。感染症指定医療機関に入院中。', connections: [] },
+  { index: 3, date: '2020/04/02', gendar: 'M', age: 60, place: '新庄市', text: '東京より帰宅後、発熱症状のある親族あり。感染症指定医療機関に入院中。', connections: [ 4, 5 ] },
+  { index: 4, date: '2020/04/03', gendar: 'F', age: 60, place: '新庄市', text: '', connections: [ 3, 5 ] },
+  { index: 5, date: '2020/04/03', gendar: 'F', age: 30, place: '新庄市', text: '', connections: [ 3, 4, 9, 37, 39 ] },
+  { index: 6, date: '2020/04/03', gendar: 'F', age: 30, place: '新庄市', text: '', connections: [ 7, 8 ] },
+  { index: 7, date: '2020/04/03', gendar: 'F', age: 0, place: '新庄市', text: '', connections: [ 6, 8 ] },
+  { index: 8, date: '2020/04/03', gendar: 'F', age: 0, place: '新庄市', text: '', connections: [ 6, 7 ] },
+  { index: 9, date: '2020/04/04', gendar: 'F', age: 20, place: '大蔵村', text: '感染拡大地域への行動歴は現時点ではなし。', connections: [ 5, 37, 39 ] },
+  { index: 10, date: '2020/04/04', gendar: 'M', age: 20, place: '上山市', text: '3/26夜、東京から来形した友人と会食（山形市内飲食店）', connections: [ 11, 12, 16, 35 ] },
+  { index: 11, date: '2020/04/05', gendar: 'F', age: 50, place: '上山市', text: '小規模多機能型居宅介護事業所「ながすず」勤務', connections: [ 10, 35 ] },
+  { index: 12, date: '2020/04/05', gendar: 'M', age: 20, place: '米沢市', text: 'ヨールベニマル成島店勤務', connections: [ 10, 14, 15, 16 ] },
+  { index: 13, date: '2020/04/05', gendar: 'M', age: 20, place: '鶴岡市', text: '3/20夜、クラスター発生施設（HUB仙台一番町４丁目店）の利用あり。仙台市からの以来に基づく健康観察実施中に判明。', connections: [ 18, 23 ] },
+  { index: 14, date: '2020/04/06', gendar: 'M', age: 20, place: '南陽市', text: '高畠ワイナリーに勤務', connections: [ 12 ] },
+  { index: 15, date: '2020/04/06', gendar: 'M', age: 20, place: '高畠町', text: '高畠消防署に勤務', connections: [ 12, 24, 25, 26 ] },
+  { index: 16, date: '2020/04/06', gendar: 'F', age: 40, place: '高畠町', text: '', connections: [ 10, 12, 28, 29, 30, 36 ] },
+  { index: 17, date: '2020/04/06', gendar: 'F', age: 50, place: '飯豊町', text: 'ヤマト運輸勤務', connections: [ 10 ] },
+  { index: 18, date: '2020/04/06', gendar: 'M', age: 20, place: '鶴岡市', text: '3/20夜、クラスター発生施設（HUB仙台一番町４丁目店）の利用あり。仙台市からの以来に基づく健康観察実施中に判明。', connections: [ 13, 20 ] },
+  { index: 19, date: '2020/04/06', gendar: 'M', age: 50, place: '上山市', text: '', connections: [] },
+  { index: 20, date: '2020/04/08', gendar: 'F', age: 40, place: '鶴岡市', text: '従業員', connections: [ 18 ] },
+  { index: 21, date: '2020/04/08', gendar: 'M', age: 20, place: '鶴岡市', text: '会社員', connections: [ 18 ] },
+  { index: 22, date: '2020/04/08', gendar: 'M', age: 40, place: '酒田市', text: '会社員', connections: [ 31, 32 ] },
+  { index: 23, date: '2020/04/09', gendar: 'M', age: 20, place: '鶴岡市', text: '', connections: [ 13 ] },
+  { index: 24, date: '2020/04/09', gendar: 'M', age: 50, place: '高畠町', text: '', connections: [ 15, 33 ] },
+  { index: 25, date: '2020/04/09', gendar: 'M', age: 80, place: '高畠町', text: '', connections: [ 15 ] },
+  { index: 26, date: '2020/04/09', gendar: 'F', age: 70, place: '高畠町', text: '', connections: [ 15 ] },
+  { index: 27, date: '2020/04/09', gendar: 'F', age: 20, place: '山形市', text: '（詳細は山形市より発表）', connections: [] },
+  { index: 28, date: '2020/04/10', gendar: 'F', age: 50, place: '米沢市', text: '従業員', connections: [ 16 ] },
+  { index: 29, date: '2020/04/10', gendar: 'F', age: 50, place: '米沢市', text: '従業員', connections: [ 16 ] },
+  { index: 30, date: '2020/04/10', gendar: 'F', age: 50, place: '南陽市', text: '従業員', connections: [ 16 ] },
+  { index: 31, date: '2020/04/10', gendar: 'F', age: 40, place: '酒田市', text: '会社員', connections: [ 22 ] },
+  { index: 32, date: '2020/04/10', gendar: 'F', age: 10, place: '酒田市', text: '中学生', connections: [ 22 ] },
+  { index: 33, date: '2020/04/11', gendar: 'M', age: 50, place: '米沢市', text: '会社員', connections: [ 24 ] },
+  { index: 34, date: '2020/04/12', gendar: 'M', age: 60, place: '中山町', text: '', connections: [] },
+  { index: 35, date: '2020/04/12', gendar: 'M', age: 50, place: '上山市', text: '', connections: [ 10, 11 ] },
+  { index: 36, date: '2020/04/12', gendar: 'F', age: 50, place: '米沢市', text: '従業員', connections: [ 16 ] },
+  { index: 37, date: '2020/04/12', gendar: 'F', age: 50, place: '大蔵村', text: '特別養護老人ホーム関連事業所の職員', connections: [ 5, 9, 39 ] },
+  { index: 38, date: '2020/04/12', gendar: 'F', age: 20, place: '山形市', text: '（詳細は山形市より発表）', connections: [] },
+  { index: 39, date: '2020/04/12', gendar: 'F', age: 40, place: '大蔵村', text: '特別養護老人ホーム関連事業所の職員', connections: [ 5, 9, 37 ] },
+  { index: 40, date: '2020/04/13', gendar: 'M', age: 60, place: '', text: '', connections: [] }
+  ];
+  if( result && result.length > 0 ){
+    console.log( result );
+    var bydate = {};
+    result.forEach( function( r ){
+      if( r.date ){
+        if( r.date in bydate ){
+          bydate[r.date].push( r );
+        }else{
+          bydate[r.date] = [ r ];
+        }
+      }
+    });
+    console.log( bydate );
+    byplace = {};
+    history = {};
+    showByDate( bydate, latlngs, 0 );
+  }
+  */
+});
+
+function showByDate( bydate, latlngs, dateindex ){
+  var keys = Object.keys( bydate );
+  if( keys.length <= dateindex ){
+    return;
+  }else{
+    var date = keys[dateindex];
+    var incidents = bydate[date];
+    mapIncidents( incidents, latlngs );
+    setTimeout( function(){
+      showByDate( bydate, latlngs, dateindex + 1 );
+    }, 2000 );
+  }
+}
+
+function mapIncidents( incidents, latlngs ){
+  if( incidents && incidents.length ){
+    incidents.forEach( function( incident ){
+      if( incident && incident.place ){
+        if( incident.place in byplace ){
+          byplace[incident.place] ++;
+        }else{
+          byplace[incident.place] = 0;
+        }
+
+        var latlng = latlngs[incident.place];
+        if( latlng ){
+          var lat = latlng.lat;
+          var lng = latlng.lng;
+          if( byplace[incident.place] > 0 ){
+            /* offset
+            8   5
+              1
+             402
+              3
+            7   6
+            */
+            var x = Math.ceil( byplace[incident.place] / 4 );
+            var y = byplace[incident.place] % 8;
+            switch( y ){
+            case 1:
+              lat += offset * x;
+              break;
+            case 2:
+              lng += offset * x;
+              break;
+            case 3:
+              lat -= offset * x;
+              break;
+            case 4:
+              lng -= offset * x;
+              break;
+            case 5:
+              lat += offset * x;
+              lng += offset * x;
+              break;
+            case 6:
+              lat -= offset * x;
+              lng += offset * x;
+              break;
+            case 7:
+              lat -= offset * x;
+              lng -= offset * x;
+              break;
+            case 7:
+              lat += offset * x;
+              lng -= offset * x;
+              break;
+            }
+          }
+
+          var opt = {
+            /*
+            prefix: 'fa',
+            icon: 'fa-utensils',
+            */
+            html: incident.index,
+            shape: 'circle',
+            markerColor: 'pink'
+          };
+          var myIcon = L.divIcon( { html: incident.index } );
+          var text = ( incident.gendar == 'M' ? '男' : '女' ) + ' : ' + incident.text;
+          L.marker( [ lat, lng ], { icon: myIcon } ).addTo( map ).bindPopup( text );
+
+          history[incident.index] = { lat: lat, lng: lng };
+
+          incident.connections.forEach( function( connection ){
+            if( connection < incident.index && connection in history ){
+              var old_lat = history[connection].lat;
+              var old_lng = history[connection].lng;
+              L.polyline( [ [ old_lat, old_lng ], [ lat, lng ] ], { color: "#00f", weight: 5, opacity: 0.6 } ).addTo( map );
+            }
+          });
+        }
+      }
+    });
+  }
+}
+</script>
+<style>
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+#demoMap{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+</style>
+</head>
+<body>
+  <div>
+    <div id="demoMap"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+[
+  { index: 1, date: '2020/03/30', gendar: 'F', age: 20, place: '神奈川県', text: '発症前１４以内の海外渡航歴なし。軽症で病状は安定。', connections: [] },
+  { index: 2, date: '2020/04/01', gendar: 'M', age: 60, place: '上山市', text: '海外、県外への行動歴なし。肺炎の症状あるも病状安定。感染症指定医療機関に入院中。', connections: [] },
+  { index: 3, date: '2020/04/02', gendar: 'M', age: 60, place: '新庄市', text: '東京より帰宅後、発熱症状のある親族あり。感染症指定医療機関に入院中。', connections: [ 4, 5 ] },
+  { index: 4, date: '2020/04/03', gendar: 'F', age: 60, place: '新庄市', text: '', connections: [ 3, 5 ] },
+  { index: 5, date: '2020/04/03', gendar: 'F', age: 30, place: '新庄市', text: '', connections: [ 3, 4, 9, 37, 39 ] },
+  { index: 6, date: '2020/04/03', gendar: 'F', age: 30, place: '新庄市', text: '', connections: [ 7, 8 ] },
+  { index: 7, date: '2020/04/03', gendar: 'F', age: 0, place: '新庄市', text: '', connections: [ 6, 8 ] },
+  { index: 8, date: '2020/04/03', gendar: 'F', age: 0, place: '新庄市', text: '', connections: [ 6, 7 ] },
+  { index: 9, date: '2020/04/04', gendar: 'F', age: 20, place: '大蔵村', text: '感染拡大地域への行動歴は現時点ではなし。', connections: [ 5, 37, 39 ] },
+  { index: 10, date: '2020/04/04', gendar: 'M', age: 20, place: '上山市', text: '3/26夜、東京から来形した友人と会食（山形市内飲食店）', connections: [ 11, 12, 16, 35 ] },
+  { index: 11, date: '2020/04/05', gendar: 'F', age: 50, place: '上山市', text: '小規模多機能型居宅介護事業所「ながすず」勤務', connections: [ 10, 35 ] },
+  { index: 12, date: '2020/04/05', gendar: 'M', age: 20, place: '米沢市', text: 'ヨールベニマル成島店勤務', connections: [ 10, 14, 15, 16 ] },
+  { index: 13, date: '2020/04/05', gendar: 'M', age: 20, place: '鶴岡市', text: '3/20夜、クラスター発生施設（HUB仙台一番町４丁目店）の利用あり。仙台市からの以来に基づく健康観察実施中に判明。', connections: [ 18, 23 ] },
+  { index: 14, date: '2020/04/06', gendar: 'M', age: 20, place: '南陽市', text: '高畠ワイナリーに勤務', connections: [ 12 ] },
+  { index: 15, date: '2020/04/06', gendar: 'M', age: 20, place: '高畠町', text: '高畠消防署に勤務', connections: [ 12, 24, 25, 26 ] },
+  { index: 16, date: '2020/04/06', gendar: 'F', age: 40, place: '高畠町', text: '', connections: [ 10, 12, 28, 29, 30, 36 ] },
+  { index: 17, date: '2020/04/06', gendar: 'F', age: 50, place: '飯豊町', text: 'ヤマト運輸勤務', connections: [ 10 ] },
+  { index: 18, date: '2020/04/06', gendar: 'M', age: 20, place: '鶴岡市', text: '3/20夜、クラスター発生施設（HUB仙台一番町４丁目店）の利用あり。仙台市からの以来に基づく健康観察実施中に判明。', connections: [ 13, 20 ] },
+  { index: 19, date: '2020/04/06', gendar: 'M', age: 50, place: '上山市', text: '', connections: [] },
+  { index: 20, date: '2020/04/08', gendar: 'F', age: 40, place: '鶴岡市', text: '従業員', connections: [ 18 ] },
+  { index: 21, date: '2020/04/08', gendar: 'M', age: 20, place: '鶴岡市', text: '会社員', connections: [ 18 ] },
+  { index: 22, date: '2020/04/08', gendar: 'M', age: 40, place: '酒田市', text: '会社員', connections: [ 31, 32 ] },
+  { index: 23, date: '2020/04/09', gendar: 'M', age: 20, place: '鶴岡市', text: '', connections: [ 13 ] },
+  { index: 24, date: '2020/04/09', gendar: 'M', age: 50, place: '高畠町', text: '', connections: [ 15, 33 ] },
+  { index: 25, date: '2020/04/09', gendar: 'M', age: 80, place: '高畠町', text: '', connections: [ 15 ] },
+  { index: 26, date: '2020/04/09', gendar: 'F', age: 70, place: '高畠町', text: '', connections: [ 15 ] },
+  { index: 27, date: '2020/04/09', gendar: 'F', age: 20, place: '山形市', text: '（詳細は山形市より発表）', connections: [] },
+  { index: 28, date: '2020/04/10', gendar: 'F', age: 50, place: '米沢市', text: '従業員', connections: [ 16 ] },
+  { index: 29, date: '2020/04/10', gendar: 'F', age: 50, place: '米沢市', text: '従業員', connections: [ 16 ] },
+  { index: 30, date: '2020/04/10', gendar: 'F', age: 50, place: '南陽市', text: '従業員', connections: [ 16 ] },
+  { index: 31, date: '2020/04/10', gendar: 'F', age: 40, place: '酒田市', text: '会社員', connections: [ 22 ] },
+  { index: 32, date: '2020/04/10', gendar: 'F', age: 10, place: '酒田市', text: '中学生', connections: [ 22 ] },
+  { index: 33, date: '2020/04/11', gendar: 'M', age: 50, place: '米沢市', text: '会社員', connections: [ 24 ] },
+  { index: 34, date: '2020/04/12', gendar: 'M', age: 60, place: '中山町', text: '', connections: [] },
+  { index: 35, date: '2020/04/12', gendar: 'M', age: 50, place: '上山市', text: '', connections: [ 10, 11 ] },
+  { index: 36, date: '2020/04/12', gendar: 'F', age: 50, place: '米沢市', text: '従業員', connections: [ 16 ] },
+  { index: 37, date: '2020/04/12', gendar: 'F', age: 50, place: '大蔵村', text: '特別養護老人ホーム関連事業所の職員', connections: [ 5, 9, 39 ] },
+  { index: 38, date: '2020/04/12', gendar: 'F', age: 20, place: '山形市', text: '（詳細は山形市より発表）', connections: [] },
+  { index: 39, date: '2020/04/12', gendar: 'F', age: 40, place: '大蔵村', text: '特別養護老人ホーム関連事業所の職員', connections: [ 5, 9, 37 ] },
+  { index: 40, date: '2020/04/13', gendar: 'M', age: 60, place: '', text: '', connections: [] },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  { index: 1000, date: '', gendar: 'M', age: 60, place: '', text: '', connections: [] },
+]
