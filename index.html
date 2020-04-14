@@ -234,6 +234,7 @@ function mapIncidents( incidents, latlngs ){
           }
 
           var bg = ( incident.gendar == 'M' ? '#ccf' : '#fcc' );
+          var html = '<span style="background-color: ' + bg + ';">' + incident.index + '</span>';
           var opt = {
             /*
             prefix: 'fa',
@@ -243,7 +244,7 @@ function mapIncidents( incidents, latlngs ){
             shape: 'circle',
             markerColor: 'pink'
           };
-          var myIcon = L.divIcon( { html: '<span style="background-color: \'' + bg + '\';">' + incident.index + '</span>', background-color: bg } );
+          var myIcon = L.divIcon( { html: html } );
           var text = ( incident.gendar == 'M' ? '男' : '女' ) + ' : ' + incident.text;
           L.marker( [ lat, lng ], { icon: myIcon } ).addTo( map ).bindPopup( text );
 
