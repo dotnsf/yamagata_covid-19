@@ -243,7 +243,7 @@ function mapIncidents( incidents, latlngs ){
             markerColor: 'pink'
           };
           var bg = ( incident.gendar == 'M' ? '#ccf' : '#fcc' );
-          var myIcon = L.divIcon( { html: incident.index, background: bg } );
+          var myIcon = L.divIcon( { html: incident.index, background-color: bg } );
           var text = ( incident.gendar == 'M' ? '男' : '女' ) + ' : ' + incident.text;
           L.marker( [ lat, lng ], { icon: myIcon } ).addTo( map ).bindPopup( text );
 
@@ -253,7 +253,7 @@ function mapIncidents( incidents, latlngs ){
             if( connection < incident.index && connection in history ){
               var old_lat = history[connection].lat;
               var old_lng = history[connection].lng;
-              L.polyline( [ [ old_lat, old_lng ], [ lat, lng ] ], { color: "#00f", weight: 5, opacity: 0.6 } ).addTo( map );
+              L.polyline( [ [ old_lat, old_lng ], [ lat, lng ] ], { color: "#0f0", weight: 5, opacity: 0.6 } ).addTo( map );
             }
           });
         }
