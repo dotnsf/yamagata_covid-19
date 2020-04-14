@@ -233,17 +233,17 @@ function mapIncidents( incidents, latlngs ){
             }
           }
 
+          var bg = ( incident.gendar == 'M' ? '#ccf' : '#fcc' );
           var opt = {
             /*
             prefix: 'fa',
             icon: 'fa-utensils',
             */
-            html: incident.index,
+            html: '<span style="background-color: \"' + bg + '\";">' + incident.index + '</span>',
             shape: 'circle',
             markerColor: 'pink'
           };
-          var bg = ( incident.gendar == 'M' ? '#ccf' : '#fcc' );
-          var myIcon = L.divIcon( { html: incident.index, background-color: bg } );
+          var myIcon = L.divIcon( { html: '<span style="background-color: \'' + bg + '\';">' + incident.index + '</span>', background-color: bg } );
           var text = ( incident.gendar == 'M' ? '男' : '女' ) + ' : ' + incident.text;
           L.marker( [ lat, lng ], { icon: myIcon } ).addTo( map ).bindPopup( text );
 
