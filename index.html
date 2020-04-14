@@ -254,7 +254,7 @@ function mapIncidents( incidents, latlngs ){
             if( connection < incident.index && connection in history ){
               var old_lat = history[connection].lat;
               var old_lng = history[connection].lng;
-              L.polyline( [ [ old_lat, old_lng ], [ lat, lng ] ], { color: "#0f0", weight: 5, opacity: 0.6 } ).addTo( map );
+              L.polyline( [ [ old_lat, old_lng ], [ lat, lng ] ], { color: "#f0f", weight: 5, opacity: 0.6 } ).addTo( map );
             }
           });
         }
