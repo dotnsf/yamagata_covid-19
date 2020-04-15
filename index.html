@@ -32,6 +32,7 @@ var offset = 0.02;
 var map = null;
 var byplace = {};
 var history = {};
+var lastindex = -1;
 
 $(function(){
   //. 初期位置を中心とした地図を OpenStreetMap データで表示
@@ -86,7 +87,7 @@ $(function(){
   });
 
   //. for Debug
-  /*
+  if( location.protocol == 'file:' ){
   var latlngs = {
   '神奈川県': { lat: 35.433, lng: 139.633 },
   '上山市': { lat: 38.133, lng: 140.267 },
@@ -161,12 +162,15 @@ $(function(){
     history = {};
     showByDate( bydate, latlngs, 0 );
   }
-  */
+
+  }
 });
 
 function showByDate( bydate, latlngs, dateindex ){
   var keys = Object.keys( bydate );
   if( keys.length <= dateindex ){
+    var lastdate = keys[keys.length-1];
+    alert( lastdate + ' 現在で ' + lastindex + ' 件の症例が報告されています。' );
     return;
   }else{
     var date = keys[dateindex];
@@ -234,28 +238,21 @@ function mapIncidents( incidents, latlngs ){
             }
           }
 
-          var bg = ( incident.gendar == 'M' ? '#ccf' : '#fcc' );
-          var html = '<span style="background-color: ' + bg + ';">' + incident.index + '</span>';
-          var opt = {
-            /*
-            prefix: 'fa',
-            icon: 'fa-utensils',
-            */
-            html: '<span style="background-color: \"' + bg + '\";">' + incident.index + '</span>',
-            shape: 'circle',
-            markerColor: 'pink'
-          };
-          var myIcon = L.divIcon( { html: html } );
-          var text = ( incident.gendar == 'M' ? '男' : '女' ) + ' : ' + incident.text;
+          var fg = ( incident.gendar == 'M' ? '#00f' : '#f00' );
+          //var html = '<span style="background-color: ' + bg + ';">' + incident.index + '</span>';
+          var html = '<div style="text-align: center; color: ' + fg + '">' + incident.index + '</div>';
+          var myIcon = L.divIcon( { className: 'mymarker mymarker-' + incident.gendar, html: html } );
+          var text = incident.date + ' : ' + incident.text;
           L.marker( [ lat, lng ], { icon: myIcon } ).addTo( map ).bindPopup( text );
 
           history[incident.index] = { lat: lat, lng: lng };
+          lastindex = incident.index;
 
           incident.connections.forEach( function( connection ){
             if( connection < incident.index && connection in history ){
               var old_lat = history[connection].lat;
               var old_lng = history[connection].lng;
-              L.polyline( [ [ old_lat, old_lng ], [ lat, lng ] ], { color: "#f0f", weight: 5, opacity: 0.6 } ).addTo( map );
+              L.polyline( [ [ old_lat, old_lng ], [ lat, lng ] ], { color: "#ff0", weight: 5, opacity: 0.6 } ).addTo( map );
             }
           });
         }
@@ -275,6 +272,22 @@ html, body {
   position: fixed;
   width: 100%;
   height: 100%;
+}
+.mymarker{
+  width: 20px !important;
+  height: 20px !important;
+  margin: -10px !important;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba( 0, 0, 0, 0.8 );
+  z-index: 20 !important;
+}
+.mymarker-F{
+  border: 3px solid #f00;
+  background-color: #fcc;
+}
+.mymarker-M{
+  border: 3px solid #00f;
+  background-color: #ccf;
 }
 #message{
   position: absolute;
