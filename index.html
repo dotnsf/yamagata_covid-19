@@ -36,7 +36,7 @@ var lastindex = -1;
 
 $(function(){
   //. 初期位置を中心とした地図を OpenStreetMap データで表示
-  map = L.map('demoMap', { dragging: true, zoomControl: false }).setView( [ lat, lng ], zoomlevel );
+  map = L.map('demoMap', { dragging: true, zoomControl: false, maxZoom: zoomlevel+3 }).setView( [ lat, lng ], zoomlevel );
   L.control.zoom( { position: 'bottomright' } ).addTo( map );
   L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
