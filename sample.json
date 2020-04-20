@@ -7,7 +7,7 @@
   { "index": 6, "date": "2020/04/03", "gendar": "F", "age": 30, "place": "新庄市", "text": "", "connections": [ 7, 8 ] },
   { "index": 7, "date": "2020/04/03", "gendar": "F", "age": 0, "place": "新庄市", "text": "", "connections": [ 6, 8 ] },
   { "index": 8, "date": "2020/04/03", "gendar": "F", "age": 0, "place": "新庄市", "text": "", "connections": [ 6, 7 ] },
-  { "index": 9, "date": "2020/04/04", "gendar": "F", "age": 20, "place": "大蔵村", "text": "感染拡大地域への行動歴は現時点ではなし。", "connections": [ 5, 37, 39, 40, 42, 50, 51, 55, 59 ] },
+  { "index": 9, "date": "2020/04/04", "gendar": "F", "age": 20, "place": "大蔵村", "text": "感染拡大地域への行動歴は現時点ではなし。", "connections": [ 5, 37, 39, 40, 42, 50, 51, 55, 59, 62 ] },
   { "index": 10, "date": "2020/04/04", "gendar": "M", "age": 20, "place": "上山市", "text": "3/26夜、東京から来形した友人と会食（山形市内飲食店）", "connections": [ 11, 12, 16, 35 ] },
   { "index": 11, "date": "2020/04/05", "gendar": "F", "age": 50, "place": "上山市", "text": "小規模多機能型居宅介護事業所「ながすず」勤務", "connections": [ 10, 35 ] },
   { "index": 12, "date": "2020/04/05", "gendar": "M", "age": 20, "place": "米沢市", "text": "ヨールベニマル成島店勤務", "connections": [ 10, 14, 15, 16 ] },
@@ -38,7 +38,7 @@
   { "index": 37, "date": "2020/04/12", "gendar": "F", "age": 50, "place": "大蔵村", "text": "特別養護老人ホーム関連事業所の職員", "connections": [ 5, 9, 39, 41, 42 ] },
   { "index": 38, "date": "2020/04/12", "gendar": "F", "age": 20, "place": "山形市", "text": "（詳細は山形市より発表）", "connections": [] },
   { "index": 39, "date": "2020/04/13", "gendar": "F", "age": 40, "place": "大蔵村", "text": "特別養護老人ホーム関連事業所の職員", "connections": [ 5, 9, 37, 42, 56, 57, 58 ] },
-  { "index": 40, "date": "2020/04/14", "gendar": "F", "age": 80, "place": "大蔵村", "text": "無職", "connections": [ 9, 59 ] },
+  { "index": 40, "date": "2020/04/14", "gendar": "F", "age": 80, "place": "大蔵村", "text": "無職", "connections": [ 9, 59, 62 ] },
   { "index": 41, "date": "2020/04/14", "gendar": "M", "age": 20, "place": "大蔵村", "text": "従業員", "connections": [ 37 ] },
   { "index": 42, "date": "2020/04/14", "gendar": "F", "age": 50, "place": "大蔵村", "text": "特別養護老人ホーム関連事業所の職員", "connections": [ 5, 9, 37, 39 ] },
   { "index": 43, "date": "2020/04/14", "gendar": "F", "age": 20, "place": "山形市", "text": "（詳細は山形市より発表）", "connections": [] },
@@ -57,9 +57,13 @@
   { "index": 56, "date": "2020/04/17", "gendar": "F", "age": 70, "place": "大蔵村", "text": "", "connections": [ 39, 57, 58 ] },
   { "index": 57, "date": "2020/04/17", "gendar": "M", "age": 50, "place": "鶴岡市", "text": "会社員", "connections": [ 39, 56, 58 ] },
   { "index": 58, "date": "2020/04/17", "gendar": "F", "age": 40, "place": "鶴岡市", "text": "", "connections": [ 39, 56, 57 ] },
-  { "index": 59, "date": "2020/04/18", "gendar": "F", "age": 50, "place": "大蔵村", "text": "会社員", "connections": [ 9, 40 ] },
+  { "index": 59, "date": "2020/04/18", "gendar": "F", "age": 50, "place": "大蔵村", "text": "会社員", "connections": [ 9, 40, 62 ] },
   { "index": 60, "date": "2020/04/18", "gendar": "M", "age": 10, "place": "高畠市", "text": "高校生", "connections": [ 48 ] },
-  { "index": 61, "date": "2020/04/19", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
+  { "index": 61, "date": "2020/04/19", "gendar": "M", "age": 10, "place": "米沢市", "text": "道の駅米沢内コンビニエンスストア従業員", "connections": [ 63 ] },
+  { "index": 62, "date": "2020/04/20", "gendar": "M", "age": 50, "place": "大蔵村", "text": "会社員", "connections": [ 9, 40, 59 ] },
+  { "index": 63, "date": "2020/04/20", "gendar": "F", "age": 40, "place": "米沢市", "text": "従業員", "connections": [ 61 ] },
+  { "index": 64, "date": "2020/04/20", "gendar": "M", "age": 60, "place": "山形市", "text": "（詳細は山形市より発表）", "connections": [] },
+  { "index": 65, "date": "2020/04/21", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
 
 
 
