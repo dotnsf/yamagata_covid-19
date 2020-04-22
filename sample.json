@@ -62,8 +62,9 @@
   { "index": 61, "date": "2020/04/19", "gendar": "M", "age": 10, "place": "米沢市", "text": "道の駅米沢内コンビニエンスストア従業員", "connections": [ 63 ] },
   { "index": 62, "date": "2020/04/20", "gendar": "M", "age": 50, "place": "大蔵村", "text": "会社員", "connections": [ 9, 40, 59 ] },
   { "index": 63, "date": "2020/04/20", "gendar": "F", "age": 40, "place": "米沢市", "text": "従業員", "connections": [ 61 ] },
-  { "index": 64, "date": "2020/04/20", "gendar": "M", "age": 60, "place": "山形市", "text": "", "connections": [] },
-  { "index": 65, "date": "2020/04/21", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
+  { "index": 64, "date": "2020/04/20", "gendar": "M", "age": 60, "place": "山形市", "text": "", "connections": [ 65 ] },
+  { "index": 65, "date": "2020/04/22", "gendar": "M", "age": 40, "place": "山形市", "text": "団体職員", "connections": [ 64 ] },
+  { "index": 66, "date": "2020/04/23", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
 
 
 
