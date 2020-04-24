@@ -64,7 +64,8 @@
   { "index": 63, "date": "2020/04/20", "gendar": "F", "age": 40, "place": "米沢市", "text": "従業員", "connections": [ 61 ] },
   { "index": 64, "date": "2020/04/20", "gendar": "M", "age": 60, "place": "山形市", "text": "", "connections": [ 65 ] },
   { "index": 65, "date": "2020/04/22", "gendar": "M", "age": 40, "place": "山形市", "text": "団体職員", "connections": [ 64 ] },
-  { "index": 66, "date": "2020/04/23", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
+  { "index": 66, "date": "2020/04/24", "gendar": "M", "age": 30, "place": "南陽市", "text": "会社員・従業員", "connections": [] },
+  { "index": 66, "date": "2020/04/25", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
 
 
 
