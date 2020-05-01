@@ -52,7 +52,7 @@
   { "index": 51, "date": "2020/04/16", "gendar": "F", "age": 80, "place": "大蔵村", "text": "無職", "connections": [ 5, 9 ] },
   { "index": 52, "date": "2020/04/16", "gendar": "F", "age": 80, "place": "新庄市", "text": "無職", "connections": [ 3, 4, 5 ] },
   { "index": 53, "date": "2020/04/16", "gendar": "M", "age": 30, "place": "米沢市", "text": "会社員", "connections": [ 44 ] },
-  { "index": 54, "date": "2020/04/16", "gendar": "F", "age": 30, "place": "米沢市", "text": "石橋医院事務職員", "connections": [ 44 ] },
+  { "index": 54, "date": "2020/04/16", "gendar": "F", "age": 30, "place": "米沢市", "text": "石橋医院事務職員", "connections": [ 44, 68 ] },
   { "index": 55, "date": "2020/04/17", "gendar": "F", "age": 40, "place": "大蔵村", "text": "特別養護老人ホーム翠明荘の職員", "connections": [ 5, 9 ] },
   { "index": 56, "date": "2020/04/17", "gendar": "F", "age": 70, "place": "大蔵村", "text": "", "connections": [ 39, 57, 58 ] },
   { "index": 57, "date": "2020/04/17", "gendar": "M", "age": 50, "place": "鶴岡市", "text": "会社員", "connections": [ 39, 56, 58 ] },
@@ -65,7 +65,9 @@
   { "index": 64, "date": "2020/04/20", "gendar": "M", "age": 60, "place": "山形市", "text": "", "connections": [ 65 ] },
   { "index": 65, "date": "2020/04/22", "gendar": "M", "age": 40, "place": "山形市", "text": "団体職員", "connections": [ 64 ] },
   { "index": 66, "date": "2020/04/24", "gendar": "M", "age": 30, "place": "南陽市", "text": "会社員・従業員", "connections": [] },
-  { "index": 66, "date": "2020/04/25", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
+  { "index": 67, "date": "2020/04/28", "gendar": "F", "age": 80, "place": "山形市", "text": "", "connections": [] },
+  { "index": 68, "date": "2020/04/29", "gendar": "M", "age": 60, "place": "米沢市", "text": "医師（石橋医院）", "connections": [ 54 ] },
+  { "index": 69, "date": "2020/05/01", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
 
 
 
