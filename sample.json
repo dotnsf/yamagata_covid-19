@@ -68,7 +68,8 @@
   { "index": 67, "date": "2020/04/28", "gendar": "F", "age": 80, "place": "山形市", "text": "", "connections": [] },
   { "index": 68, "date": "2020/04/29", "gendar": "M", "age": 60, "place": "米沢市", "text": "医師（石橋医院）", "connections": [ 54 ] },
   { "index": 69, "date": "2020/05/04", "gendar": "M", "age": 80, "place": "大蔵村", "text": "", "connections": [ 9, 40, 59, 62 ] },
-  { "index": 70, "date": "2020/05/05", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
+  { "index": 70, "date": "2020/07/04", "gendar": "M", "age": 20, "place": "南陽市", "text": "団体職員", "connections": [] },
+  { "index": 71, "date": "2020/05/05", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
 
 
 
