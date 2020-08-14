@@ -68,8 +68,14 @@
   { "index": 67, "date": "2020/04/28", "gendar": "F", "age": 80, "place": "山形市", "text": "", "connections": [] },
   { "index": 68, "date": "2020/04/29", "gendar": "M", "age": 60, "place": "米沢市", "text": "医師（石橋医院）", "connections": [ 54 ] },
   { "index": 69, "date": "2020/05/04", "gendar": "M", "age": 80, "place": "大蔵村", "text": "", "connections": [ 9, 40, 59, 62 ] },
-  { "index": 70, "date": "2020/07/04", "gendar": "M", "age": 20, "place": "南陽市", "text": "団体職員", "connections": [] },
-  { "index": 71, "date": "2020/05/05", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
+  { "index": 70, "date": "2020/07/04", "gendar": "M", "age": 20, "place": "南陽市", "text": "団体職員", "connections": [ 71 ] },
+  { "index": 71, "date": "2020/07/06", "gendar": "M", "age": 20, "place": "長井市", "text": "団体職員", "connections": [ 70 ] },
+  { "index": 72, "date": "2020/07/13", "gendar": "M", "age": 20, "place": "東京都", "text": "大学生", "connections": [] },
+  { "index": 73, "date": "2020/07/13", "gendar": "F", "age": 20, "place": "埼玉県", "text": "飲食店従業員", "connections": [ 74 ] },
+  { "index": 74, "date": "2020/07/15", "gendar": "M", "age": 20, "place": "天童市", "text": "団体職員", "connections": [ 73 ] },
+  { "index": 75, "date": "2020/07/16", "gendar": "M", "age": 20, "place": "米沢市", "text": "大学生", "connections": [] },
+  { "index": 76, "date": "2020/07/31", "gendar": "M", "age": 50, "place": "新庄市", "text": "会社員", "connections": [] },
+  { "index": 77, "date": "", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
 
 
 
