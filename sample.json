@@ -77,7 +77,8 @@
   { "index": 76, "date": "2020/07/31", "gendar": "M", "age": 50, "place": "新庄市", "text": "会社員", "connections": [] },
   { "index": 77, "date": "2020/08/20", "gendar": "M", "age": 70, "place": "山形市", "text": "会社役員", "connections": [] },
   { "index": 78, "date": "2020/08/30", "gendar": "M", "age": 70, "place": "山形市", "text": "無職", "connections": [] },
-  { "index": 79, "date": "", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
+  { "index": 79, "date": "2020/10/08", "gendar": "M", "age": 20, "place": "山形市", "text": "大学生", "connections": [] },
+  { "index": 80, "date": "", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
 
 
 
