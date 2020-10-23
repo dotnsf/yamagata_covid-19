@@ -77,8 +77,12 @@
   { "index": 76, "date": "2020/07/31", "gendar": "M", "age": 50, "place": "新庄市", "text": "会社員", "connections": [] },
   { "index": 77, "date": "2020/08/20", "gendar": "M", "age": 70, "place": "山形市", "text": "会社役員", "connections": [] },
   { "index": 78, "date": "2020/08/30", "gendar": "M", "age": 70, "place": "山形市", "text": "無職", "connections": [] },
-  { "index": 79, "date": "2020/10/08", "gendar": "M", "age": 20, "place": "山形市", "text": "大学生", "connections": [] },
-  { "index": 80, "date": "", "gendar": "M", "age": 60, "place": "", "text": "", "connections": [] },
+  { "index": 79, "date": "2020/10/08", "gendar": "M", "age": 20, "place": "山形市", "text": "大学生", "connections": [ 80 ] },
+  { "index": 80, "date": "2020/10/09", "gendar": "F", "age": 60, "place": "山形市", "text": "会社員", "connections": [ 79 ] },
+  { "index": 81, "date": "2020/10/09", "gendar": "M", "age": 40, "place": "米沢市", "text": "会社員", "connections": [] },
+  { "index": 82, "date": "2020/10/21", "gendar": "M", "age": 40, "place": "天童市", "text": "会社役員", "connections": [ 83, 84 ] },
+  { "index": 83, "date": "2020/10/22", "gendar": "M", "age": 10, "place": "天童市", "text": "高校生", "connections": [ 82 ] },
+  { "index": 84, "date": "2020/10/22", "gendar": "F", "age": 70, "place": "天童市", "text": "会社役員", "connections": [ 82 ] },
 
 
 
