@@ -98,7 +98,14 @@
   { "index": 97, "date": "2020/11/15", "gendar": "M", "age": 50, "place": "白鷹町", "text": "自営業", "connections": [ 93 ] },
   { "index": 98, "date": "2020/11/16", "gendar": "M", "age": 50, "place": "大阪府", "text": "会社員", "connections": [] },
   { "index": 99, "date": "2020/11/18", "gendar": "M", "age": 40, "place": "米沢市", "text": "会社役員", "connections": [] },
-  { "index": 100, "date": "2020/11/18", "gendar": "F", "age": 50, "place": "山形市", "text": "無職", "connections": [] },
+  { "index": 100, "date": "2020/11/18", "gendar": "F", "age": 50, "place": "山形市", "text": "無職", "connections": [ 105 ] },
+  { "index": 101, "date": "2020/11/19", "gendar": "F", "age": 40, "place": "酒田市", "text": "会社員", "connections": [] },
+  { "index": 102, "date": "2020/11/19", "gendar": "M", "age": 40, "place": "鶴岡市", "text": "県農林水産部職員", "connections": [ 106 ] },
+  { "index": 103, "date": "2020/11/19", "gendar": "M", "age": 30, "place": "鶴岡市", "text": "県農林水産部職員", "connections": [ 107 ] },
+  { "index": 104, "date": "2020/11/19", "gendar": "F", "age": 40, "place": "山形市", "text": "会社員", "connections": [] },
+  { "index": 105, "date": "2020/11/19", "gendar": "M", "age": 10, "place": "山形市", "text": "中学生", "connections": [ 100 ] },
+  { "index": 106, "date": "2020/11/20", "gendar": "F", "age": 40, "place": "鶴岡市", "text": "従業員", "connections": [ 102 ] },
+  { "index": 107, "date": "2020/11/20", "gendar": "F", "age": 30, "place": "鶴岡市", "text": "団体職員", "connections": [ 103 ] },
 
 
 
