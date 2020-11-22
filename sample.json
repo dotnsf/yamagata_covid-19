@@ -106,6 +106,8 @@
   { "index": 105, "date": "2020/11/19", "gendar": "M", "age": 10, "place": "山形市", "text": "中学生", "connections": [ 100 ] },
   { "index": 106, "date": "2020/11/20", "gendar": "F", "age": 40, "place": "鶴岡市", "text": "従業員", "connections": [ 102 ] },
   { "index": 107, "date": "2020/11/20", "gendar": "F", "age": 30, "place": "鶴岡市", "text": "団体職員", "connections": [ 103 ] },
+  { "index": 108, "date": "2020/11/22", "gendar": "F", "age": 50, "place": "酒田市", "text": "？", "connections": [ 109 ] },
+  { "index": 109, "date": "2020/11/22", "gendar": "F", "age": 10, "place": "酒田市", "text": "小学生", "connections": [ 108 ] },
 
 
 
