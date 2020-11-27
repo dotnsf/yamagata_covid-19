@@ -108,6 +108,13 @@
   { "index": 107, "date": "2020/11/20", "gendar": "F", "age": 30, "place": "鶴岡市", "text": "団体職員", "connections": [ 103 ] },
   { "index": 108, "date": "2020/11/22", "gendar": "F", "age": 50, "place": "酒田市", "text": "？", "connections": [ 109 ] },
   { "index": 109, "date": "2020/11/22", "gendar": "F", "age": 10, "place": "酒田市", "text": "小学生", "connections": [ 108 ] },
+  { "index": 110, "date": "2020/11/25", "gendar": "M", "age": 50, "place": "酒田市", "text": "従業員", "connections": [ 108, 114, 115 ] },
+  { "index": 111, "date": "2020/11/26", "gendar": "M", "age": 50, "place": "上山市", "text": "会社員", "connections": [] },
+  { "index": 112, "date": "2020/11/27", "gendar": "M", "age": 60, "place": "酒田市", "text": "", "connections": [] },
+  { "index": 113, "date": "2020/11/27", "gendar": "M", "age": 40, "place": "遊佐町", "text": "会社員", "connections": [] },
+  { "index": 114, "date": "2020/11/27", "gendar": "M", "age": 30, "place": "鶴岡市", "text": "会社員", "connections": [ 110 ] },
+  { "index": 115, "date": "2020/11/27", "gendar": "M", "age": 20, "place": "鶴岡市", "text": "会社員", "connections": [ 110 ] },
+  { "index": 116, "date": "2020/11/27", "gendar": "F", "age": 20, "place": "", "text": "会社員", "connections": [] },
 
 
 
